@@ -884,6 +884,12 @@ export default function WeddingInvitation() {
                     ආදරයෙන්, දෙපවුලේ ආරාධනයයි
                   </div>
                   
+                  <div className="mb-8 flex flex-col items-center gap-1 text-[1rem]" style={{ fontFamily: "'Abhaya Libre', serif", color: "#EDDFB8" }}>
+                    <div className="font-bold uppercase tracking-widest text-[0.75rem] mb-1" style={{ fontFamily: "'Montserrat', sans-serif", opacity: 0.85 }}>Contact</div>
+                    <div>Akash - 071 639 2469</div>
+                    <div>Pawani - 0765584662</div>
+                  </div>
+
                   <div className="relative mx-auto mb-7" style={{ width: "150px", height: "54px" }}>
                     <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" style={{ width: "130px", height: "130px", borderRadius: "50%", background: "radial-gradient(50% 50%, rgba(251, 241, 212, 0.55) 0%, rgba(251, 241, 212, 0) 70%)", transform: "scale(1.0466)" }}></div>
                     <div aria-hidden="true" style={{ position: "relative", width: "150px", height: "54px", opacity: 0.95, background: "#EDDFB8", WebkitMaskImage: "url(/lotus-mandala/lotus-flourish.svg)", maskImage: "url(/lotus-mandala/lotus-flourish.svg)", WebkitMaskRepeat: "no-repeat", maskRepeat: "no-repeat", WebkitMaskSize: "contain", maskSize: "contain", WebkitMaskPosition: "center", maskPosition: "center" }}></div>
