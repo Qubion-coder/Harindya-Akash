@@ -4,31 +4,31 @@ import { Sparkles, MapPin, Calendar, Clock, ChevronDown } from "lucide-react";
 
 const INVITATION = {
   couple: {
-    bride: "හංසිනී",
-    groom: "චානක",
-    brideFull: "හංසිනී කාංචනා",
-    groomFull: "චානක රණසිංහ",
+    bride: "හරින්ද්‍යා",
+    groom: "ආකාශ්",
+    brideFull: "හරින්ද්‍යා ඒකනායක",
+    groomFull: "ආකාශ් බණ්ඩාර",
   },
   date: {
-    displayNumeric: "28 . 01 . 2027",
-    displayLong: "2027 ජනවාරි මස 28 වන දින",
-    countdownTarget: "2027-01-28T10:15:00+05:30",
+    displayNumeric: "20 . 01 . 2027",
+    displayLong: "2027 ජනවාරි මස 20 වන දින",
+    countdownTarget: "2027-01-20T09:15:00+05:30",
   },
   time: {
-    ceremonyStart: "පෙ.ව. 10:15",
-    ceremonyEnd: "ප.ව. 4:00",
-    registration: "පෙ.ව. 11:30",
-    welcome: "පෙ.ව. 8:00",
+    ceremonyStart: "පෙ.ව. 9:15",
+    ceremonyEnd: "ප.ව. 12:00",
+    registration: "පෙ.ව. 10:00",
+    welcome: "උදෑසන 8:00",
   },
   venue: {
-    name: "Rongfa Regency (Kings Court)",
-    city: "Ganemulla",
-    mapQuery: "Rongfa Regency, Ganemulla",
-    googleMapsLink: "https://maps.app.goo.gl/MgbqGoDUBDAnUpvg8",
+    name: "Regenta Arie Lagoon",
+    city: "Negombo",
+    mapQuery: "Regenta Arie Lagoon, Negombo",
+    googleMapsLink: "https://maps.app.goo.gl/EXhT4sxjjX6SBCRp6",
   },
   rsvpContacts: [
-    "Chanaka - +94 77 123 4567",
-    "Hansini - +94 77 123 4567",
+    "Akash - +94 77 123 4567",
+    "Harindya - +94 77 123 4567",
   ],
 } as const;
 
@@ -428,74 +428,79 @@ export default function WeddingInvitation() {
               </div>
             ) : (
               <>
-                <div
-                  className="absolute inset-0 bg-center bg-cover bg-no-repeat z-[1]"
-                  style={{ backgroundImage: 'url("/ChatGPT%20Image%20Sep%2023,%202026,%2002_45_34%20AM.png")' }}
-                />
-            
-            <button
-              onClick={toggleMusic}
-              aria-label="Toggle music"
-              title="Toggle music"
-              className="absolute right-4 top-4 z-[110] grid h-11 w-11 place-items-center rounded-full transition-transform duration-200 hover:-translate-y-0.5 active:scale-90 sm:right-6 sm:top-6"
-              style={{
-                background: "linear-gradient(135deg, rgb(122, 31, 26), rgb(92, 20, 15))",
-                color: "rgb(232, 216, 164)",
-                border: "1px solid rgba(92, 20, 15, 0.55)",
-                boxShadow: "rgba(142, 116, 39, 0.6) 0px 14px 28px -14px"
-              }}
-            >
-              <span className="relative grid place-items-center">
-                {isPlaying ? (
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-music2 h-5 w-5">
-                    <circle cx="8" cy="18" r="4"></circle><path d="M12 18V2l7 4"></path>
-                  </svg>
-                ) : (
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-music2 h-5 w-5">
-                    <line x1="1" y1="1" x2="23" y2="23"></line>
-                    <circle cx="8" cy="18" r="4"></circle><path d="M12 18V2l7 4"></path>
-                  </svg>
-                )}
-                <span aria-hidden="true" className="absolute inset-[-8px] rounded-full" style={{ border: "1px solid rgba(232, 216, 164, 0.55)", transform: "scale(1.06328)" }}></span>
-              </span>
-            </button>
+                <div className="absolute inset-0 z-[1]" style={{ backgroundColor: "#F5EEDF", backgroundImage: "url(/lotus-mandala/texture.webp)", backgroundRepeat: "repeat", backgroundSize: "450px 800px" }} />
+                
+                <div className="pointer-events-none absolute inset-0 overflow-hidden z-[2]" style={{ opacity: 0.16 }}>
+                  <div className="absolute top-1/2 right-0 h-[250vw] w-[250vw] -translate-y-1/2 translate-x-1/2 md:right-auto md:left-1/2 md:h-[min(200vw,1200px)] md:w-[min(200vw,1200px)] md:-translate-x-1/2">
+                    <motion.div 
+                      style={{ width: "100%", height: "100%" }}
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+                    >
+                      <div aria-hidden="true" style={{ width: "100%", height: "100%", background: "linear-gradient(180deg, #D8B45F 0%, #B98A2F 55%, #8C6420 100%)", WebkitMaskImage: "url(/Gemini_Generated_Image_e4kwdre4kwdre4kw-removebg-preview.png)", maskImage: "url(/Gemini_Generated_Image_e4kwdre4kwdre4kw-removebg-preview.png)", WebkitMaskRepeat: "no-repeat", maskRepeat: "no-repeat", WebkitMaskSize: "contain", maskSize: "contain", WebkitMaskPosition: "center", maskPosition: "center" }}></div>
+                    </motion.div>
+                  </div>
+                </div>
 
-            <div className="relative z-[105] flex flex-col items-center text-center">
-              <span className="text-2xl md:text-3xl tracking-[0.4em] font-nimsara" style={{ color: "rgb(142, 116, 39)", fontWeight: 600 }}>újdy ux.,Hh</span>
-              <div className="mt-5 mb-2">
-                <span className="inline-flex items-center justify-center gap-2.5" aria-hidden="true" style={{ width: "140px" }}>
-                  <span className="h-px flex-1" style={{ background: "linear-gradient(90deg, transparent, rgb(210, 185, 122))" }}></span>
-                  <span className="h-1.5 w-1.5 shrink-0 rotate-45" style={{ background: "rgb(184, 154, 71)" }}></span>
-                  <span className="h-px flex-1" style={{ background: "linear-gradient(90deg, rgb(210, 185, 122), transparent)" }}></span>
-                </span>
-              </div>
-              <p className="leading-[1.1] flex items-center justify-center gap-4" style={{ color: "rgb(122, 31, 26)", fontSize: "clamp(2.5rem, 8vw, 4rem)" }}>
-                <span className="font-nimsara">yxisks</span> 
-                <span className="font-nimsara" style={{ color: "rgb(142, 116, 39)", fontSize: "clamp(1.5rem, 5vw, 2.5rem)" }}>iy</span> 
-                <span className="font-nimsara">pdkl</span>
-              </p>
-              <p className="mt-3 text-[0.86rem] md:text-base font-bold" style={{ fontFamily: "var(--font-mp-body), 'Noto Sans Sinhala', sans-serif", color: "rgb(71, 60, 31)" }}>2027 ජනවාරි 28 වන බ්‍රහස්පතින්දා</p>
-              
-              <button 
-                type="button" 
-                onClick={() => {
-                  setHasStarted(true);
-                  setIsPlayingIntroVideo(true);
-                  if (audioRef.current && !isPlaying) {
-                    audioRef.current.play().then(() => setIsPlaying(true)).catch((err) => console.log("Audio play failed:", err));
-                  }
-                }}
-                className="mt-7 inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-[0.65rem] md:text-xs uppercase tracking-[0.26em] transition-colors font-bold" 
-                style={{ fontFamily: "var(--font-mp-body), 'Noto Sans Sinhala', sans-serif", background: "transparent", color: "rgb(92, 20, 15)", border: "1.5px solid rgb(122, 31, 26)" }}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-leaf h-3.5 w-3.5" aria-hidden="true" style={{ transform: "rotate(180deg)" }}>
-                  <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
-                  <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
-                </svg> 
-                ආරාධනය විවෘත කරන්න
-              </button>
-            </div>
-            </>
+                <button
+                  onClick={toggleMusic}
+                  aria-label="Toggle music"
+                  title="Toggle music"
+                  className="absolute right-4 top-4 z-[110] grid h-11 w-11 place-items-center rounded-full transition-transform duration-200 hover:-translate-y-0.5 active:scale-90 sm:right-6 sm:top-6"
+                  style={{
+                    background: "linear-gradient(135deg, rgb(122, 31, 26), rgb(92, 20, 15))",
+                    color: "rgb(232, 216, 164)",
+                    border: "1px solid rgba(92, 20, 15, 0.55)",
+                    boxShadow: "rgba(142, 116, 39, 0.6) 0px 14px 28px -14px"
+                  }}
+                >
+                  <span className="relative grid place-items-center">
+                    {isPlaying ? (
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-music2 h-5 w-5">
+                        <circle cx="8" cy="18" r="4"></circle><path d="M12 18V2l7 4"></path>
+                      </svg>
+                    ) : (
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-music2 h-5 w-5">
+                        <line x1="1" y1="1" x2="23" y2="23"></line>
+                        <circle cx="8" cy="18" r="4"></circle><path d="M12 18V2l7 4"></path>
+                      </svg>
+                    )}
+                    <span aria-hidden="true" className="absolute inset-[-8px] rounded-full" style={{ border: "1px solid rgba(232, 216, 164, 0.55)", transform: "scale(1.06328)" }}></span>
+                  </span>
+                </button>
+
+                <div className="relative z-[105] flex flex-col items-center px-8 text-center" style={{ transform: "translateY(-4px)" }}>
+                  <div>
+                    <div aria-hidden="true" style={{ width: "min(56vw,260px)", height: "min(20vw,94px)", background: "linear-gradient(180deg, #D8B45F 0%, #B98A2F 55%, #8C6420 100%)", WebkitMaskImage: "url('/image-removebg-preview (4).png')", maskImage: "url('/image-removebg-preview (4).png')", WebkitMaskRepeat: "no-repeat", maskRepeat: "no-repeat", WebkitMaskSize: "contain", maskSize: "contain", WebkitMaskPosition: "center", maskPosition: "center" }}></div>
+                  </div>
+                  
+                  <p className="mt-7" aria-label="සාදර ඇරයුමයි !">
+                    <span aria-hidden="true" className="font-nimsara" style={{ fontVariantLigatures: "none", color: "#8C6420", fontSize: "clamp(1.7rem,7vw,2.8rem)", lineHeight: 1.2 }}>idor werhquhs</span>
+                    <span aria-hidden="true" style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", fontWeight: 700, color: "#8C6420", fontSize: "clamp(1.7rem,7vw,2.8rem)", lineHeight: 1.2 }}> !</span>
+                  </p>
+
+                  <p className="mt-4" aria-hidden="true" style={{ fontSize: "clamp(1.4rem,5.5vw,2.1rem)", display: "flex", gap: "0.4rem", alignItems: "center" }}>
+                    <span className="font-nimsara" style={{ fontVariantLigatures: "none", color: "#B98A2F" }}>yßkaoHd</span>
+                    <span style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", color: "#8C6420", fontWeight: 700 }}>සහ</span>
+                    <span className="font-nimsara" style={{ fontVariantLigatures: "none", color: "#B98A2F" }}>wdldYa</span>
+                  </p>
+
+                  <button 
+                    type="button" 
+                    onClick={() => {
+                      setHasStarted(true);
+                      setIsOpened(true);
+                      if (audioRef.current && !isPlaying) {
+                        audioRef.current.play().then(() => setIsPlaying(true)).catch((err) => console.log("Audio play failed:", err));
+                      }
+                    }}
+                    className="mt-9 inline-flex cursor-pointer items-center gap-2 rounded-full px-7 py-1.5 text-[1.05rem] transition-transform duration-200 hover:-translate-y-0.5 active:scale-95" 
+                    style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", fontWeight: 600, color: "#FDF8EC", background: "linear-gradient(135deg, #B98A2F, #8C6420)", boxShadow: "0 12px 24px -12px rgba(120,86,30,0.7)" }}
+                  >
+                    ආරාධනය විවෘත කරන්න
+                  </button>
+                </div>
+              </>
             )}
           </motion.div>
         ) : (
@@ -504,6 +509,7 @@ export default function WeddingInvitation() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="website-shell relative z-20 w-full"
+            style={{ background: 'url("/Gemini_Generated_Image_axw9l3axw9l3axw9.jpg") center/cover fixed no-repeat' }}
           >
             <motion.button
               initial={{ opacity: 0, x: 20 }}
@@ -533,28 +539,28 @@ export default function WeddingInvitation() {
                 
                 <div className="mt-7 grid grid-cols-2 gap-5 sm:gap-10">
                   <div className="flex flex-col items-center gap-3">
-                    <p className="text-[0.95rem] leading-[1.8] sm:text-base text-[#5A4A33] whitespace-pre-line" style={{ fontFamily: "'Noto Sans Sinhala', sans-serif" }}>
-                      ආර්. එම්. චන්ද්‍රපාල රාජපක්ෂ සහ
-                      එච්. එම්. නන්දනී ප්‍රේමලතා
+                    <p className="text-[0.95rem] leading-[1.8] sm:text-base text-[#5A4A33] whitespace-pre-line text-center" style={{ fontFamily: "'Noto Sans Sinhala', sans-serif" }}>
+                      ඒකනායක මහතා සහ
+                      මහත්මිය
                       යන දෙපළගේ
                       ආදරණීය දියණිය
                     </p>
-                    <p className="mt-auto" aria-label="හංසිනී කාංචනා">
-                      <span aria-hidden="true" style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", fontWeight: 700, color: "#8C6420", fontSize: "clamp(1.4rem,4.2vw,2rem)", lineHeight: 1.15 }}>
-                        හංසිනී කාංචනා
+                    <p className="mt-auto" aria-label="හරින්ද්‍යා ඒකනායක">
+                      <span aria-hidden="true" className="font-nimsara" style={{ fontVariantLigatures: "none", color: "#8C6420", fontSize: "clamp(1.4rem,4.2vw,2rem)", lineHeight: 1.15 }}>
+                        yßkaoHd talkdhl
                       </span>
                     </p>
                   </div>
                   <div className="flex flex-col items-center gap-3">
-                    <p className="text-[0.95rem] leading-[1.8] sm:text-base text-[#5A4A33] whitespace-pre-line" style={{ fontFamily: "'Noto Sans Sinhala', sans-serif" }}>
-                      ආර්. ඒ. සුමිත් රණසිංහ සහ
-                      පී. ඒ. ඈන් තෙරේස් ප්‍රියන්තිනි
+                    <p className="text-[0.95rem] leading-[1.8] sm:text-base text-[#5A4A33] whitespace-pre-line text-center" style={{ fontFamily: "'Noto Sans Sinhala', sans-serif" }}>
+                      බණ්ඩාර මහතා සහ
+                      මහත්මිය
                       යන දෙපළගේ
                       ආදරණීය පුත්‍රයා
                     </p>
-                    <p className="mt-auto" aria-label="චානක රණසිංහ">
-                      <span aria-hidden="true" style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", fontWeight: 700, color: "#8C6420", fontSize: "clamp(1.4rem,4.2vw,2rem)", lineHeight: 1.15 }}>
-                        චානක රණසිංහ
+                    <p className="mt-auto" aria-label="ආකාශ් බණ්ඩාර">
+                      <span aria-hidden="true" className="font-nimsara" style={{ fontVariantLigatures: "none", color: "#8C6420", fontSize: "clamp(1.4rem,4.2vw,2rem)", lineHeight: 1.15 }}>
+                        wdldYa nKavdr
                       </span>
                     </p>
                   </div>
@@ -563,7 +569,7 @@ export default function WeddingInvitation() {
                 <div className="relative mx-auto mt-7 w-[min(84%,440px)]">
                   <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" style={{ width: "150%", height: "128%", zIndex: 0, background: "radial-gradient(60% 58% at 50% 46%, rgba(252, 248, 238, 0.96) 0%, rgba(252, 248, 238, 0.85) 38%, rgba(252, 248, 238, 0.5) 62%, rgba(252, 248, 238, 0) 82%)" }}></div>
                   <div aria-hidden="true" className="pointer-events-none absolute bottom-[8%] left-1/2 -translate-x-1/2" style={{ width: "62%", height: "9%", zIndex: 1, borderRadius: "50%", background: "radial-gradient(50% 50% at 50% 50%, rgba(140, 100, 32, 0.22) 0%, rgba(140, 100, 32, 0) 70%)", filter: "blur(4px)" }}></div>
-                  <img src="/ChatGPT%20Image%20Sep%2023,%202026,%2002_48_11%20AM.png" alt="හංසිනී සහ චානක" loading="eager" draggable="false" className="relative z-[2] w-full select-none rounded-[2rem] object-cover" />
+                  <img src="/ChatGPT%20Image%20Sep%2023,%202026,%2002_48_11%20AM.png" alt="හරින්ද්‍යා සහ ආකාශ්" loading="eager" draggable="false" className="relative z-[2] w-full select-none rounded-[2rem] object-cover" />
                 </div>
                 
                 <p className="mx-auto mt-6 max-w-[36ch] text-[1.02rem] leading-[1.9] text-[#5A4A33]" style={{ fontFamily: "'Noto Sans Sinhala', sans-serif" }}>
@@ -579,17 +585,17 @@ export default function WeddingInvitation() {
                       ජනවාරි
                     </span>
                     <span style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 700, color: "#8C6420", fontSize: "clamp(3rem,10vw,4.4rem)", lineHeight: 0.95 }}>
-                      28
+                      20
                     </span>
                     <span className="flex-1 py-1.5 text-center text-[#5A4A33] font-bold" style={{ fontFamily: "'Noto Sans Sinhala', sans-serif", fontSize: "clamp(1.05rem,2.8vw,1.3rem)", borderTop: "1.5px solid rgba(140, 100, 32, 0.85)", borderBottom: "1.5px solid rgba(140, 100, 32, 0.85)" }}>
-                      බ්‍රහස්පතින්දා
+                      බදාදා
                     </span>
                   </div>
                   <div className="mt-2.5 text-[1rem] text-[#5A4A33]" style={{ fontFamily: "'Noto Sans Sinhala', sans-serif" }}>
-                    {INVITATION.time.welcome} සිට {INVITATION.time.ceremonyEnd} දක්වා
+                    උදෑසන සිට දහවල් 12:00 දක්වා (උදෑසන ආහාර වේලක් ද පිරිනැමේ)
                   </div>
                   <p className="mt-1 text-[0.92rem]" style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", color: "#8A7A60" }}>
-                    (පෝරුවේ චාරිත්‍ර {INVITATION.time.ceremonyStart} ට | විවාහ ලියාපදිංචිය {INVITATION.time.registration} ට)
+                    (පෝරුවේ චාරිත්‍ර {INVITATION.time.ceremonyStart} ට)
                   </p>
                 </div>
                 
@@ -624,7 +630,7 @@ export default function WeddingInvitation() {
                 </div>
                 
                 <p className="mt-8 text-[0.95rem] font-bold" style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", color: "#8A7A60" }}>
-                  2027 ජනවාරි 28 බ්‍රහස්පතින්දා
+                  2027 ජනවාරි 20 බදාදා
                 </p>
               </div>
             </section>
@@ -667,7 +673,7 @@ export default function WeddingInvitation() {
               <div className="mx-auto mt-12 max-w-md space-y-4 relative z-10">
                 <div className="relative">
                   <div className="rounded-2xl overflow-hidden" style={{ background: "#FCF8EE", border: "1px solid rgba(185, 138, 47, 0.4)", boxShadow: "0 18px 38px -28px rgba(140, 100, 32, 0.35)" }}>
-                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Chanaka+and+Hansini&dates=20270128T023000Z/20270128T103000Z&details=Join+us+to+celebrate+the+wedding+of+Chanaka+and+Hansini!&location=Rongfa+Regency,+Ganemulla,+Sri+Lanka" target="_blank" rel="noopener noreferrer" className="w-full flex items-center text-left transition-colors hover:bg-white/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 gap-4 px-4 sm:px-5 py-4">
+                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Akash+and+Harindya&dates=20270120T023000Z/20270120T103000Z&details=Join+us+to+celebrate+the+wedding+of+Akash+and+Harindya!&location=Regenta+Arie+Lagoon,+Negombo,+Sri+Lanka" target="_blank" rel="noopener noreferrer" className="w-full flex items-center text-left transition-colors hover:bg-white/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 gap-4 px-4 sm:px-5 py-4">
                       <span className="flex-shrink-0 rounded-full flex items-center justify-center transition-colors w-10 h-10" style={{ background: "linear-gradient(135deg, #B98A2F, #8C6420)" }}>
                         <Calendar className="w-5 h-5 text-[#FDF8EC]" />
                       </span>
@@ -717,17 +723,17 @@ export default function WeddingInvitation() {
                 <div className="grid items-stretch gap-5 sm:gap-8 md:grid-cols-[0.85fr_1.15fr]">
                   <div className="flex flex-col justify-center">
                     <div className="flex flex-col items-center gap-3 px-8 py-9 text-center" style={{ background: "#FCF8EE", border: "1px solid rgba(185, 138, 47, 0.35)", borderRadius: "26px 26px 18px 18px", boxShadow: "0 16px 36px -26px rgba(120,86,30,0.45)" }}>
-                      <img src="/Gemini_Generated_Image_1vpm5j1vpm5j1vpm.jpg" alt="රොන්ග්ෆා රීජන්සි (කිංග්ස් කෝර්ට්)" loading="lazy" draggable="false" className="mb-2 w-full max-w-[440px] select-none rounded-[14px]" style={{ opacity: 0.95 }} />
+                      <img src="/Gemini_Generated_Image_1vpm5j1vpm5j1vpm.jpg" alt="Regenta Arie Lagoon" loading="lazy" draggable="false" className="mb-2 w-full max-w-[440px] select-none rounded-[14px]" style={{ opacity: 0.95 }} />
                       <div className="flex flex-col gap-1">
                         <span className="text-[0.62rem] uppercase tracking-[0.3em]" style={{ fontFamily: "'Montserrat', sans-serif", color: "#B98A2F" }}>Venue</span>
-                        <h3 style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", fontWeight: 700, color: "#8C6420", fontSize: "1.2rem", lineHeight: 1.35 }}>රොන්ග්ෆා රීජන්සි (කිංග්ස් කෝර්ට්)</h3>
-                        <p className="text-[0.95rem]" style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", color: "#8A7A60" }}>කොසින්න හන්දිය, කඩවත - ගණේමුල්ල පාර, ගණේමුල්ල, ශ්‍රී ලංකා.</p>
+                        <h3 style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", fontWeight: 700, color: "#8C6420", fontSize: "1.2rem", lineHeight: 1.35 }}>Regenta Arie Lagoon</h3>
+                        <p className="text-[0.95rem]" style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", color: "#8A7A60" }}>Negombo, Sri Lanka.</p>
                       </div>
                     </div>
                   </div>
                   <div className="flex flex-col gap-4">
                     <div className="relative min-h-[300px] flex-1 overflow-hidden" style={{ borderRadius: "18px", border: "1px solid rgba(185, 138, 47, 0.4)", boxShadow: "0 28px 56px -34px rgba(120,86,30,0.5)" }}>
-                      <iframe title="Map of රොන්ග්ෆා රීජන්සි" src={`https://maps.google.com/maps?q=${encodeURIComponent("Rongfa Regency, Ganemulla")}&z=14&output=embed`} loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="absolute inset-0 h-full w-full border-0" style={{ filter: "grayscale(0.2) saturate(0.9)" }}></iframe>
+                      <iframe title="Map of Regenta Arie Lagoon" src={`https://maps.google.com/maps?q=${encodeURIComponent("Regenta Arie Lagoon, Negombo")}&z=14&output=embed`} loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="absolute inset-0 h-full w-full border-0" style={{ filter: "grayscale(0.2) saturate(0.9)" }}></iframe>
                     </div>
                     <a href={INVITATION.venue.googleMapsLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2.5 self-center rounded-full px-7 py-3 text-[0.95rem] transition-transform duration-200 hover:-translate-y-0.5 active:scale-95" style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", fontWeight: 600, background: "linear-gradient(135deg, #B98A2F, #8C6420)", color: "#FDF8EC", boxShadow: "0 14px 26px -14px rgba(120,86,30,0.7)" }}>
                       <MapPin className="h-4 w-4" /> සිතියමෙන් බලන්න
@@ -861,12 +867,6 @@ export default function WeddingInvitation() {
                 </form>
               </div>
             </section>
-
-
-
-
-
-
             <section id="footer" className="relative overflow-hidden w-full">
               <div className="relative px-6 py-9 text-center sm:py-12" style={{ background: "linear-gradient(180deg, #8C6420 0%, #6E4D16 100%)", color: "#F8F1DC" }}>
                 <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.08]" aria-hidden="true">
@@ -878,7 +878,7 @@ export default function WeddingInvitation() {
                 <div className="relative z-10">
                   <div className="text-[0.7rem] uppercase tracking-[0.4em]" style={{ fontFamily: "'Montserrat', sans-serif", opacity: 0.85 }}>Save the date</div>
                   <div className="my-3.5" style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 500, fontSize: "clamp(2.4rem,9vw,5rem)", lineHeight: 1, letterSpacing: "0.04em" }}>
-                    28 . 01 . 27
+                    20 . 01 . 27
                   </div>
                   <div className="mb-6 text-[1.05rem] leading-[1.85]" style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", color: "#EDDFB8" }}>
                     ආදරයෙන්, දෙපවුලේ ආරාධනයයි
@@ -887,17 +887,6 @@ export default function WeddingInvitation() {
                   <div className="relative mx-auto mb-7" style={{ width: "150px", height: "54px" }}>
                     <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" style={{ width: "130px", height: "130px", borderRadius: "50%", background: "radial-gradient(50% 50%, rgba(251, 241, 212, 0.55) 0%, rgba(251, 241, 212, 0) 70%)", transform: "scale(1.0466)" }}></div>
                     <div aria-hidden="true" style={{ position: "relative", width: "150px", height: "54px", opacity: 0.95, background: "#EDDFB8", WebkitMaskImage: "url(/lotus-mandala/lotus-flourish.svg)", maskImage: "url(/lotus-mandala/lotus-flourish.svg)", WebkitMaskRepeat: "no-repeat", maskRepeat: "no-repeat", WebkitMaskSize: "contain", maskSize: "contain", WebkitMaskPosition: "center", maskPosition: "center" }}></div>
-                  </div>
-                  
-                  <div className="flex flex-wrap items-center justify-center gap-3">
-                    <a href="tel:+94715439474" aria-label="Call චානක" className="inline-flex items-center gap-2 whitespace-nowrap rounded-full px-4 py-2.5 text-[0.92rem] transition-transform duration-200 hover:-translate-y-0.5 active:scale-95 sm:px-6" style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", fontWeight: 600, background: "rgba(253,248,236,0.12)", border: "1px solid rgba(237, 223, 184, 0.6)", color: "#F8F1DC" }}>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-phone h-3.5 w-3.5" aria-hidden="true" style={{ color: "#EDDFB8" }}><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg> 
-                      චානක · +94 71 54 39 474
-                    </a>
-                    <a href="tel:+94715659441" aria-label="Call හංසිනී" className="inline-flex items-center gap-2 whitespace-nowrap rounded-full px-4 py-2.5 text-[0.92rem] transition-transform duration-200 hover:-translate-y-0.5 active:scale-95 sm:px-6" style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", fontWeight: 600, background: "rgba(253,248,236,0.12)", border: "1px solid rgba(237, 223, 184, 0.6)", color: "#F8F1DC" }}>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-phone h-3.5 w-3.5" aria-hidden="true" style={{ color: "#EDDFB8" }}><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg> 
-                      හංසිනී · +94 71 56 59 441
-                    </a>
                   </div>
                   
                   <div className="mt-14 opacity-80 transition-opacity hover:opacity-100">
