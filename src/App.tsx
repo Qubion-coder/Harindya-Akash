@@ -127,7 +127,7 @@ function FloatingPetals() {
   );
 }
 
-function CountdownTimer({ isDark = false }: { isDark?: boolean }) {
+function CountdownTimer({ isDark = false, lang = "si" }: { isDark?: boolean, lang?: "si" | "en" }) {
   const targetDate = new Date(INVITATION.date.countdownTarget).getTime();
   const [timeLeft, setTimeLeft] = useState(targetDate - Date.now());
 
@@ -145,10 +145,10 @@ function CountdownTimer({ isDark = false }: { isDark?: boolean }) {
   const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
   const stats = [
-    { label: "දින", value: days },
-    { label: "පැය", value: hours },
-    { label: "මිනිත්තු", value: minutes },
-    { label: "තත්පර", value: seconds },
+    { label: lang === "si" ? "දින" : "Days", value: days },
+    { label: lang === "si" ? "පැය" : "Hours", value: hours },
+    { label: lang === "si" ? "මිනිත්තු" : "Mins", value: minutes },
+    { label: lang === "si" ? "තත්පර" : "Secs", value: seconds },
   ];
 
   return (
@@ -200,7 +200,7 @@ function CountdownTimer({ isDark = false }: { isDark?: boolean }) {
   );
 }
 
-function Gallery() {
+function Gallery({ lang = "si" }: { lang?: "si" | "en" }) {
   const marqueeImages = [...PRE_IMAGES, ...PRE_IMAGES, ...PRE_IMAGES];
 
   return (
@@ -261,6 +261,7 @@ function Gallery() {
 }
 
 export default function WeddingInvitation() {
+  const [lang, setLang] = useState<'si' | 'en'>('si');
   const [hasStarted, setHasStarted] = useState(false);
   const [isOpened, setIsOpened] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -411,7 +412,7 @@ export default function WeddingInvitation() {
                     className="flex flex-col items-center px-4 w-full"
                   >
                     <h2 className="text-4xl md:text-5xl text-[#1a1a1a] mb-4 tracking-wide drop-shadow-[0_0_15px_rgba(255,255,255,0.8)]" style={{ fontFamily: "'Noto Sans Sinhala', sans-serif", fontWeight: 600 }}>
-                      විවාහ ආරාධනයයි
+                      {lang === 'si' ? 'විවාහ ආරාධනයයි' : 'Wedding Invitation'}
                     </h2>
                     
                     <div className="flex items-center justify-center gap-4 w-[160px] md:w-[220px] mb-5">
@@ -421,7 +422,7 @@ export default function WeddingInvitation() {
                     </div>
 
                     <p className="text-2xl md:text-3xl text-[#1a1a1a] tracking-[0.1em] font-bold drop-shadow-[0_0_15px_rgba(255,255,255,0.8)]" style={{ fontFamily: "'Noto Sans Sinhala', sans-serif" }}>
-                      {INVITATION.couple.bride} සහ {INVITATION.couple.groom}
+                      {INVITATION.couple.bride} {lang === 'si' ? 'සහ' : 'and'} {INVITATION.couple.groom}
                     </p>
                   </motion.div>
                 </div>
@@ -467,7 +468,9 @@ export default function WeddingInvitation() {
                     )}
                     <span aria-hidden="true" className="absolute inset-[-8px] rounded-full" style={{ border: "1px solid rgba(232, 216, 164, 0.55)", transform: "scale(1.06328)" }}></span>
                   </span>
-                </button>
+                                </button>
+
+
 
                 <div className="relative z-[105] flex flex-col items-center px-8 text-center" style={{ transform: "translateY(-4px)" }}>
                   <div>
@@ -475,14 +478,14 @@ export default function WeddingInvitation() {
                   </div>
                   
                   <p className="mt-7" aria-label="සාදර ඇරයුමයි !">
-                    <span aria-hidden="true" className="font-nimsara" style={{ fontVariantLigatures: "none", color: "#8C6420", fontSize: "clamp(1.7rem,7vw,2.8rem)", lineHeight: 1.2 }}>idor werhquhs</span>
-                    <span aria-hidden="true" style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", fontWeight: 700, color: "#8C6420", fontSize: "clamp(1.7rem,7vw,2.8rem)", lineHeight: 1.2 }}> !</span>
+                    <span aria-hidden="true" className={lang === "si" ? "font-nimsara" : "font-english-title drop-shadow-sm tracking-wide"} style={{ fontVariantLigatures: "none", color: "#8C6420", fontSize: "clamp(1.7rem,7vw,2.8rem)", lineHeight: 1.2 }}>{lang === 'si' ? 'idor werhquhs' : 'You\'re Invited'}</span>
+                    <span aria-hidden="true" style={{ fontFamily: `'Noto Sans Sinhala', ${lang === 'en' ? "'Cormorant Garamond'" : "'Abhaya Libre'"}, serif`, fontWeight: 700, color: "#8C6420", fontSize: "clamp(1.7rem,7vw,2.8rem)", lineHeight: 1.2 }}>{lang === 'si' ? ' !' : '!'}</span>
                   </p>
 
                   <p className="mt-4" aria-hidden="true" style={{ fontSize: "clamp(1.4rem,5.5vw,2.1rem)", display: "flex", gap: "0.4rem", alignItems: "center" }}>
-                    <span className="font-nimsara" style={{ fontVariantLigatures: "none", color: "#B98A2F" }}>yßkaoHd</span>
-                    <span style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", color: "#8C6420", fontWeight: 700 }}>සහ</span>
-                    <span className="font-nimsara" style={{ fontVariantLigatures: "none", color: "#B98A2F" }}>wdldYa</span>
+                    <span className={lang === "si" ? "font-nimsara" : "font-english-title drop-shadow-sm tracking-wide"} style={{ fontVariantLigatures: "none", color: "#B98A2F" }}>{lang === 'si' ? 'yßkaoHd' : 'Harindya'}</span>
+                    <span style={{ fontFamily: `'Noto Sans Sinhala', ${lang === 'en' ? "'Cormorant Garamond'" : "'Abhaya Libre'"}, serif`, color: "#8C6420", fontWeight: 700 }}>{lang === 'si' ? 'සහ' : 'and'}</span>
+                    <span className={lang === "si" ? "font-nimsara" : "font-english-title drop-shadow-sm tracking-wide"} style={{ fontVariantLigatures: "none", color: "#B98A2F" }}>{lang === 'si' ? 'wdldYa' : 'Akash'}</span>
                   </p>
 
                   <button 
@@ -495,10 +498,15 @@ export default function WeddingInvitation() {
                       }
                     }}
                     className="mt-9 inline-flex cursor-pointer items-center gap-2 rounded-full px-7 py-1.5 text-[1.05rem] transition-transform duration-200 hover:-translate-y-0.5 active:scale-95" 
-                    style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", fontWeight: 600, color: "#FDF8EC", background: "linear-gradient(135deg, #B98A2F, #8C6420)", boxShadow: "0 12px 24px -12px rgba(120,86,30,0.7)" }}
+                    style={{ fontFamily: `'Noto Sans Sinhala', ${lang === 'en' ? "'Cormorant Garamond'" : "'Abhaya Libre'"}, serif`, fontWeight: 600, color: "#FDF8EC", background: "linear-gradient(135deg, #B98A2F, #8C6420)", boxShadow: "0 12px 24px -12px rgba(120,86,30,0.7)" }}
                   >
-                    ආරාධනය විවෘත කරන්න
-                  </button>
+                    {lang === 'si' ? 'ආරාධනය විවෘත කරන්න' : 'Open Invitation'}
+                                    </button>
+
+                  <div className="flex items-center gap-0.5 rounded-full p-1 mt-6" role="group" aria-label="Invitation language" style={{ background: "rgba(255, 253, 246, 0.9)", border: "1px solid rgba(185, 138, 47, 0.45)", boxShadow: "0 10px 24px -12px rgba(120,86,30,0.5)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}>
+                    <button onClick={() => setLang('si')} type="button" aria-pressed={lang === 'si'} className="rounded-full px-3 py-1 text-[0.78rem] font-semibold transition-colors" style={lang === 'si' ? { fontFamily: `${lang === 'en' ? "'Cormorant Garamond'" : "'Abhaya Libre'"}, serif`, background: "linear-gradient(135deg, #B98A2F, #8C6420)", color: "#FDF8EC" } : { fontFamily: `${lang === 'en' ? "'Cormorant Garamond'" : "'Abhaya Libre'"}, serif`, background: "transparent", color: "#8C6420" }}>සිං</button>
+                    <button onClick={() => setLang('en')} type="button" aria-pressed={lang === 'en'} className="rounded-full px-3 py-1 text-[0.78rem] font-semibold transition-colors" style={lang === 'en' ? { fontFamily: "'Montserrat', sans-serif", background: "linear-gradient(135deg, #B98A2F, #8C6420)", color: "#FDF8EC" } : { fontFamily: "'Montserrat', sans-serif", background: "transparent", color: "#8C6420" }}>EN</button>
+                  </div>
                 </div>
               </>
             )}
@@ -512,13 +520,21 @@ export default function WeddingInvitation() {
             style={{ background: 'url("/Gemini_Generated_Image_axw9l3axw9l3axw9.jpg") center/cover fixed no-repeat' }}
           >
             <motion.button
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              onClick={() => setLang(l => l === 'si' ? 'en' : 'si')}
+              className="fixed top-6 left-6 z-50 bg-white/80 backdrop-blur-md px-4 py-3 rounded-full shadow-lg text-[#8f7322] hover:bg-emerald-50 transition-colors font-bold tracking-widest text-[11px]"
+            >
+              {lang === 'si' ? 'EN' : 'සිංහල'}
+            </motion.button>
+            <motion.button
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               onClick={() => setIsOpened(false)}
               className="fixed top-6 right-6 z-50 bg-white/80 backdrop-blur-md p-3 rounded-full shadow-lg text-[#8f7322] hover:bg-emerald-50 transition-colors"
             >
               <div className="flex flex-col items-center">
-                <div className="text-[11px] tracking-widest font-bold">වසා දමන්න</div>
+                <div className="text-[11px] tracking-widest font-bold">{lang === 'si' ? 'වසා දමන්න' : 'Close'}</div>
               </div>
             </motion.button>
 
@@ -532,7 +548,7 @@ export default function WeddingInvitation() {
               <div className="relative mx-auto max-w-2xl px-6 text-center sm:px-8 pb-12 z-10 mt-6">
                 <div>
                   <h1 aria-label="සාදර ඇරයුමයි !" className="-mt-1" style={{ fontSize: "clamp(2.1rem,8.5vw,3.4rem)", lineHeight: 1.25, backgroundImage: "linear-gradient(170deg, #D8B45F 0%, #B98A2F 45%, #8C6420 100%)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
-                    <span aria-hidden="true" className="font-nimsara" style={{ fontVariantLigatures: "none" }}>idor werhquhs</span>
+                    <span aria-hidden="true" className={lang === "si" ? "font-nimsara" : "font-english-title drop-shadow-sm tracking-wide"} style={{ fontVariantLigatures: "none" }}>{lang === 'si' ? 'idor werhquhs' : 'You\'re Invited'}</span>
                     <span aria-hidden="true" style={{ fontFamily: "'Noto Sans Sinhala', sans-serif", fontWeight: 600 }}> !</span>
                   </h1>
                 </div>
@@ -540,27 +556,31 @@ export default function WeddingInvitation() {
                 <div className="mt-7 grid grid-cols-2 gap-5 sm:gap-10">
                   <div className="flex flex-col items-center gap-3">
                     <p className="text-[0.95rem] leading-[1.8] sm:text-base text-[#5A4A33] whitespace-pre-line text-center" style={{ fontFamily: "'Noto Sans Sinhala', sans-serif" }}>
-                      ඒකනායක මහතා සහ
+                      {lang === 'si' ? `ඒකනායක මහතා සහ
                       මහත්මිය
                       යන දෙපළගේ
-                      ආදරණීය දියණිය
+                      ආදරණීය දියණිය` : `Loving daughter of
+                      Mr. & Mrs.
+                      Ekanayake`}
                     </p>
                     <p className="mt-auto" aria-label="හරින්ද්‍යා ඒකනායක">
-                      <span aria-hidden="true" className="font-nimsara" style={{ fontVariantLigatures: "none", color: "#8C6420", fontSize: "clamp(1.4rem,4.2vw,2rem)", lineHeight: 1.15 }}>
-                        yßkaoHd talkdhl
+                      <span aria-hidden="true" className={lang === "si" ? "font-nimsara" : "font-english-title drop-shadow-sm tracking-wide"} style={{ fontVariantLigatures: "none", color: "#8C6420", fontSize: "clamp(1.4rem,4.2vw,2rem)", lineHeight: 1.15 }}>
+                        {lang === 'si' ? 'yßkaoHd talkdhl' : 'Harindya Ekanayake'}
                       </span>
                     </p>
                   </div>
                   <div className="flex flex-col items-center gap-3">
                     <p className="text-[0.95rem] leading-[1.8] sm:text-base text-[#5A4A33] whitespace-pre-line text-center" style={{ fontFamily: "'Noto Sans Sinhala', sans-serif" }}>
-                      බණ්ඩාර මහතා සහ
+                      {lang === 'si' ? `බණ්ඩාර මහතා සහ
                       මහත්මිය
                       යන දෙපළගේ
-                      ආදරණීය පුත්‍රයා
+                      ආදරණීය පුත්‍රයා` : `Loving son of
+                      Mr. & Mrs.
+                      Bandara`}
                     </p>
                     <p className="mt-auto" aria-label="ආකාශ් බණ්ඩාර">
-                      <span aria-hidden="true" className="font-nimsara" style={{ fontVariantLigatures: "none", color: "#8C6420", fontSize: "clamp(1.4rem,4.2vw,2rem)", lineHeight: 1.15 }}>
-                        wdldYa nKavdr
+                      <span aria-hidden="true" className={lang === "si" ? "font-nimsara block text-center" : "font-english-title drop-shadow-sm tracking-wide block text-center"} style={{ fontVariantLigatures: "none", color: "#8C6420", fontSize: "clamp(1.4rem,4.2vw,2rem)", lineHeight: 1.15 }}>
+                        {lang === 'si' ? <>wdldYa<br />nKavdr</> : <>Akash<br />Bandara</>}
                       </span>
                     </p>
                   </div>
@@ -573,7 +593,7 @@ export default function WeddingInvitation() {
                 </div>
                 
                 <p className="mx-auto mt-6 max-w-[36ch] text-[1.02rem] leading-[1.9] text-[#5A4A33]" style={{ fontFamily: "'Noto Sans Sinhala', sans-serif" }}>
-                  චාරිත්‍රානුකූලව අතිනත ගැනීමේ ප්‍රීතිය නිමිත්තෙන්
+                  {lang === 'si' ? 'චාරිත්‍රානුකූලව අතිනත ගැනීමේ ප්‍රීතිය නිමිත්තෙන්' : 'On the joyous occasion of their marriage'}
                 </p>
                 
                 <div className="mt-4">
@@ -582,20 +602,20 @@ export default function WeddingInvitation() {
                   </div>
                   <div className="mx-auto mt-1.5 flex max-w-md items-center justify-center gap-4 sm:gap-6">
                     <span className="flex-1 py-1.5 text-center text-[#5A4A33] font-bold" style={{ fontFamily: "'Noto Sans Sinhala', sans-serif", fontSize: "clamp(1.05rem,2.8vw,1.3rem)", borderTop: "1.5px solid rgba(140, 100, 32, 0.85)", borderBottom: "1.5px solid rgba(140, 100, 32, 0.85)" }}>
-                      ජනවාරි
+                      {lang === 'si' ? 'ජනවාරි' : 'January'}
                     </span>
                     <span style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 700, color: "#8C6420", fontSize: "clamp(3rem,10vw,4.4rem)", lineHeight: 0.95 }}>
                       20
                     </span>
                     <span className="flex-1 py-1.5 text-center text-[#5A4A33] font-bold" style={{ fontFamily: "'Noto Sans Sinhala', sans-serif", fontSize: "clamp(1.05rem,2.8vw,1.3rem)", borderTop: "1.5px solid rgba(140, 100, 32, 0.85)", borderBottom: "1.5px solid rgba(140, 100, 32, 0.85)" }}>
-                      බදාදා
+                      {lang === 'si' ? 'බදාදා' : 'Wednesday'}
                     </span>
                   </div>
                   <div className="mt-2.5 text-[1rem] text-[#5A4A33]" style={{ fontFamily: "'Noto Sans Sinhala', sans-serif" }}>
-                    උදෑසන සිට දහවල් 12:00 දක්වා (උදෑසන ආහාර වේලක් ද පිරිනැමේ)
+                    {lang === 'si' ? 'උදෑසන සිට දහවල් 12:00 දක්වා (උදෑසන ආහාර වේල ද පිරිනැමේ' : 'From morning until 12:00 PM (Breakfast will be served)'}
                   </div>
-                  <p className="mt-1 text-[0.92rem]" style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", color: "#8A7A60" }}>
-                    (පෝරුවේ චාරිත්‍ර {INVITATION.time.ceremonyStart} ට)
+                  <p className="mt-1 text-[0.92rem]" style={{ fontFamily: `'Noto Sans Sinhala', ${lang === 'en' ? "'Cormorant Garamond'" : "'Abhaya Libre'"}, serif`, color: "#8A7A60" }}>
+                    {lang === 'si' ? `(පෝරුවේ චාරිත්‍ර ${INVITATION.time.ceremonyStart} ට)` : `(Poruwa Ceremony at ${INVITATION.time.ceremonyStart})`}
                   </p>
                 </div>
                 
@@ -604,10 +624,10 @@ export default function WeddingInvitation() {
                     {INVITATION.venue.name}
                   </p>
                   <p className="max-w-[40ch] text-[1rem] leading-[1.85] text-[#5A4A33]" style={{ fontFamily: "'Noto Sans Sinhala', sans-serif" }}>
-                    හෝටල් පරිශ්‍රයේ දී පැවැත්වෙන මංගල උත්සවයට
+                    {lang === 'si' ? 'හෝටල් පරිශ්‍රයේ දී පැවැත්වෙන මංගල උත්සවයට' : 'to the wedding reception held at the hotel premises'}
                   </p>
                   <p className="max-w-[40ch] text-[1rem] leading-[1.85] text-[#5A4A33]" style={{ fontFamily: "'Noto Sans Sinhala', sans-serif" }}>
-                    ඔබට අපි ගෞරවයෙන් ආරාධනා කරන්නෙමු.
+                    {lang === 'si' ? 'ඔබට අපි ගෞරවයෙන් ආරාධනා කරන්නෙමු.' : 'We respectfully invite you.'}
                   </p>
                 </div>
               </div>
@@ -619,18 +639,18 @@ export default function WeddingInvitation() {
                   Countdown
                 </span>
                 
-                <h2 style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", fontWeight: 700, color: "#8C6420", fontSize: "clamp(1.6rem,4vw,2.3rem)" }}>
-                  අපේ සුබ දවස උදා වීමට...
+                <h2 style={{ fontFamily: `'Noto Sans Sinhala', ${lang === 'en' ? "'Cormorant Garamond'" : "'Abhaya Libre'"}, serif`, fontWeight: 700, color: "#8C6420", fontSize: "clamp(1.6rem,4vw,2.3rem)" }}>
+                  {lang === 'si' ? 'අපේ සුබ දවස උදා වීමට...' : 'Until our special day...'}
                 </h2>
                 
                 <div aria-hidden="true" className="mt-3" style={{ width: "120px", aspectRatio: "2100 / 756", margin: "0 auto", background: "linear-gradient(180deg, #D8B45F 0%, #B98A2F 55%, #8C6420 100%)", WebkitMaskImage: "url(/lotus-mandala/lotus-flourish.svg)", maskImage: "url(/lotus-mandala/lotus-flourish.svg)", WebkitMaskRepeat: "no-repeat", maskRepeat: "no-repeat", WebkitMaskSize: "contain", maskSize: "contain", WebkitMaskPosition: "center", maskPosition: "center" }}></div>
                 
                 <div className="mt-2 mb-8 w-full flex justify-center">
-                  <CountdownTimer isDark={false} />
+                  <CountdownTimer isDark={false} lang={lang} />
                 </div>
                 
-                <p className="mt-8 text-[0.95rem] font-bold" style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", color: "#8A7A60" }}>
-                  2027 ජනවාරි 20 බදාදා
+                <p className="mt-8 text-[0.95rem] font-bold" style={{ fontFamily: `'Noto Sans Sinhala', ${lang === 'en' ? "'Cormorant Garamond'" : "'Abhaya Libre'"}, serif`, color: "#8A7A60" }}>
+                  {lang === 'si' ? '2027 ජනවාරි 20 බදාදා' : 'Wednesday, January 20, 2027'}
                 </p>
               </div>
             </section>
@@ -646,8 +666,8 @@ export default function WeddingInvitation() {
                 <span className="mb-2 block text-[0.66rem] uppercase" style={{ color: "#B98A2F", fontFamily: "'Montserrat', sans-serif", letterSpacing: "0.34em" }}>
                   Event Details
                 </span>
-                <h2 className="leading-tight" style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", fontWeight: 700, color: "#8C6420", fontSize: "clamp(1.7rem,4.2vw,2.6rem)" }}>
-                  උත්සව විස්තර
+                <h2 className="leading-tight" style={{ fontFamily: `'Noto Sans Sinhala', ${lang === 'en' ? "'Cormorant Garamond'" : "'Abhaya Libre'"}, serif`, fontWeight: 700, color: "#8C6420", fontSize: "clamp(1.7rem,4.2vw,2.6rem)" }}>
+                  {lang === 'si' ? 'උත්සව විස්තර' : 'Event Details'}
                 </h2>
                 <div aria-hidden="true" className="mt-3" style={{ width: "120px", aspectRatio: "2100 / 756", margin: "0 auto", background: "linear-gradient(180deg, #D8B45F 0%, #B98A2F 55%, #8C6420 100%)", WebkitMaskImage: "url(/lotus-mandala/lotus-flourish.svg)", maskImage: "url(/lotus-mandala/lotus-flourish.svg)", WebkitMaskRepeat: "no-repeat", maskRepeat: "no-repeat", WebkitMaskSize: "contain", maskSize: "contain", WebkitMaskPosition: "center", maskPosition: "center" }}></div>
               </div>
@@ -657,15 +677,15 @@ export default function WeddingInvitation() {
                   <span className="mb-1 grid h-16 w-16 place-items-center rounded-full transition-transform duration-300 group-hover:scale-110" style={{ background: "linear-gradient(150deg, #D8B45F, #B98A2F 55%, #8C6420)", color: "#FDF8EC", boxShadow: "0 10px 20px -10px rgba(120,86,30,0.7)" }}>
                     <MapPin className="w-7 h-7 text-[#FDF8EC]" />
                   </span>
-                  <h3 style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", fontWeight: 700, color: "#8C6420", fontSize: "clamp(1.15rem,3vw,1.4rem)", lineHeight: 1.3 }}>
-                    මංගල උත්සවය සහ පෝරුවේ චාරිත්‍රය
+                  <h3 style={{ fontFamily: `'Noto Sans Sinhala', ${lang === 'en' ? "'Cormorant Garamond'" : "'Abhaya Libre'"}, serif`, fontWeight: 700, color: "#8C6420", fontSize: "clamp(1.15rem,3vw,1.4rem)", lineHeight: 1.3 }}>
+                    {lang === 'si' ? 'මංගල උත්සවය සහ පෝරුවේ චාරිත්‍රය' : 'Wedding Reception & Poruwa Ceremony'}
                   </h3>
-                  <div style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", color: "#5A4A33", fontSize: "clamp(0.98rem,2.4vw,1.08rem)" }}>
+                  <div style={{ fontFamily: `'Noto Sans Sinhala', ${lang === 'en' ? "'Cormorant Garamond'" : "'Abhaya Libre'"}, serif`, color: "#5A4A33", fontSize: "clamp(0.98rem,2.4vw,1.08rem)" }}>
                     {INVITATION.venue.name} – {INVITATION.venue.city}
                   </div>
                   <span className="my-1.5 h-px w-10" style={{ background: "#D8B45F" }} aria-hidden="true"></span>
-                  <p className="text-[0.95rem] leading-[1.8]" style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", color: "#8A7A60" }}>
-                    පෝරුවේ චාරිත්‍රය: {INVITATION.time.ceremonyStart} ට<br/>විවාහ ලියාපදිංචිය: {INVITATION.time.registration} ට<br/>ඉන් අනතුරුව මංගල භෝජන සංග්‍රහය
+                  <p className="text-[0.95rem] leading-[1.8]" style={{ fontFamily: `'Noto Sans Sinhala', ${lang === 'en' ? "'Cormorant Garamond'" : "'Abhaya Libre'"}, serif`, color: "#8A7A60" }}>
+                    {lang === 'si' ? 'පෝරුවේ චාරිත්‍රය:' : 'Poruwa Ceremony:'} {INVITATION.time.ceremonyStart} {lang === 'si' ? 'ට' : ''}<br/>{lang === 'si' ? 'උදෑසන ආහාරය:' : 'Breakfast:'} {INVITATION.time.registration} {lang === 'si' ? 'සිට' : 'onwards'}<br/>{lang === 'si' ? 'ඉන් අනතුරුව මංගල භෝජන සංග්‍රහය' : 'Followed by the wedding feast'}
                   </p>
                 </div>
               </div>
@@ -678,8 +698,8 @@ export default function WeddingInvitation() {
                         <Calendar className="w-5 h-5 text-[#FDF8EC]" />
                       </span>
                       <span className="flex-1 min-w-0">
-                        <span className="block leading-tight text-lg" style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", color: "#8C6420" }}>දිනය සුරකින්න</span>
-                        <span className="block text-xs mt-0.5" style={{ color: "rgba(90, 74, 51, 0.65)" }}>ඔබගේ දින දර්ශනයට එක් කරන්න</span>
+                        <span className="block leading-tight text-lg" style={{ fontFamily: `'Noto Sans Sinhala', ${lang === 'en' ? "'Cormorant Garamond'" : "'Abhaya Libre'"}, serif`, color: "#8C6420" }}>{lang === 'si' ? 'දිනය සුරකින්න' : 'Save the Date'}</span>
+                        <span className="block text-xs mt-0.5" style={{ color: "rgba(90, 74, 51, 0.65)" }}>{lang === 'si' ? 'ඔබගේ දින දර්ශනයට එක් කරන්න' : 'Add to your calendar'}</span>
                       </span>
                       <span className="flex-shrink-0 rounded-full flex items-center justify-center w-8 h-8" style={{ backgroundColor: "rgba(140, 100, 32, 0.06)" }}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chevron-right w-4 h-4" style={{ color: "rgb(140, 100, 32)" }}><path d="m9 18 6-6-6-6"></path></svg>
@@ -695,8 +715,8 @@ export default function WeddingInvitation() {
                         <MapPin className="w-5 h-5 text-[#FDF8EC]" />
                       </span>
                       <span className="flex-1 min-w-0">
-                        <span className="block leading-tight text-lg" style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", color: "#8C6420" }}>Google Maps</span>
-                        <span className="block text-xs mt-0.5" style={{ color: "rgba(90, 74, 51, 0.65)" }}>ස්ථානය සොයා ගන්න</span>
+                        <span className="block leading-tight text-lg" style={{ fontFamily: `'Noto Sans Sinhala', ${lang === 'en' ? "'Cormorant Garamond'" : "'Abhaya Libre'"}, serif`, color: "#8C6420" }}>Google Maps</span>
+                        <span className="block text-xs mt-0.5" style={{ color: "rgba(90, 74, 51, 0.65)" }}>{lang === 'si' ? 'ස්ථානය සොයා ගන්න' : 'Find the location'}</span>
                       </span>
                       <span className="flex-shrink-0 rounded-full flex items-center justify-center w-8 h-8" style={{ backgroundColor: "rgba(140, 100, 32, 0.06)" }}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chevron-right w-4 h-4" style={{ color: "rgb(140, 100, 32)" }}><path d="m9 18 6-6-6-6"></path></svg>
@@ -716,7 +736,7 @@ export default function WeddingInvitation() {
               }}>
               <div className="mb-10 text-center sm:mb-14">
                 <span className="mb-2 block text-[0.66rem] uppercase" style={{ color: "#B98A2F", fontFamily: "'Montserrat', sans-serif", letterSpacing: "0.34em" }}>Location</span>
-                <h2 className="leading-tight" style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", fontWeight: 700, color: "#8C6420", fontSize: "clamp(1.7rem,4.2vw,2.6rem)" }}>උත්සව ස්ථානය</h2>
+                <h2 className="leading-tight" style={{ fontFamily: `'Noto Sans Sinhala', ${lang === 'en' ? "'Cormorant Garamond'" : "'Abhaya Libre'"}, serif`, fontWeight: 700, color: "#8C6420", fontSize: "clamp(1.7rem,4.2vw,2.6rem)" }}>{lang === 'si' ? 'උත්සව ස්ථානය' : 'Venue Location'}</h2>
                 <div aria-hidden="true" className="mt-3" style={{ width: "120px", aspectRatio: "2100 / 756", margin: "0 auto", background: "linear-gradient(180deg, #D8B45F 0%, #B98A2F 55%, #8C6420 100%)", WebkitMaskImage: "url(/lotus-mandala/lotus-flourish.svg)", maskImage: "url(/lotus-mandala/lotus-flourish.svg)", WebkitMaskRepeat: "no-repeat", maskRepeat: "no-repeat", WebkitMaskSize: "contain", maskSize: "contain", WebkitMaskPosition: "center", maskPosition: "center" }}></div>
               </div>
               <div className="flex flex-col gap-12 sm:gap-16">
@@ -726,8 +746,8 @@ export default function WeddingInvitation() {
                       <img src="/Gemini_Generated_Image_1vpm5j1vpm5j1vpm.jpg" alt="Regenta Arie Lagoon" loading="lazy" draggable="false" className="mb-2 w-full max-w-[440px] select-none rounded-[14px]" style={{ opacity: 0.95 }} />
                       <div className="flex flex-col gap-1">
                         <span className="text-[0.62rem] uppercase tracking-[0.3em]" style={{ fontFamily: "'Montserrat', sans-serif", color: "#B98A2F" }}>Venue</span>
-                        <h3 style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", fontWeight: 700, color: "#8C6420", fontSize: "1.2rem", lineHeight: 1.35 }}>Regenta Arie Lagoon</h3>
-                        <p className="text-[0.95rem]" style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", color: "#8A7A60" }}>Negombo, Sri Lanka.</p>
+                        <h3 style={{ fontFamily: `'Noto Sans Sinhala', ${lang === 'en' ? "'Cormorant Garamond'" : "'Abhaya Libre'"}, serif`, fontWeight: 700, color: "#8C6420", fontSize: "1.2rem", lineHeight: 1.35 }}>Regenta Arie Lagoon</h3>
+                        <p className="text-[0.95rem]" style={{ fontFamily: `'Noto Sans Sinhala', ${lang === 'en' ? "'Cormorant Garamond'" : "'Abhaya Libre'"}, serif`, color: "#8A7A60" }}>Negombo, Sri Lanka.</p>
                       </div>
                     </div>
                   </div>
@@ -735,8 +755,8 @@ export default function WeddingInvitation() {
                     <div className="relative min-h-[300px] flex-1 overflow-hidden" style={{ borderRadius: "18px", border: "1px solid rgba(185, 138, 47, 0.4)", boxShadow: "0 28px 56px -34px rgba(120,86,30,0.5)" }}>
                       <iframe title="Map of Regenta Arie Lagoon" src={`https://maps.google.com/maps?q=${encodeURIComponent("Regenta Arie Lagoon, Negombo")}&z=14&output=embed`} loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="absolute inset-0 h-full w-full border-0" style={{ filter: "grayscale(0.2) saturate(0.9)" }}></iframe>
                     </div>
-                    <a href={INVITATION.venue.googleMapsLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2.5 self-center rounded-full px-7 py-3 text-[0.95rem] transition-transform duration-200 hover:-translate-y-0.5 active:scale-95" style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", fontWeight: 600, background: "linear-gradient(135deg, #B98A2F, #8C6420)", color: "#FDF8EC", boxShadow: "0 14px 26px -14px rgba(120,86,30,0.7)" }}>
-                      <MapPin className="h-4 w-4" /> සිතියමෙන් බලන්න
+                    <a href={INVITATION.venue.googleMapsLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2.5 self-center rounded-full px-7 py-3 text-[0.95rem] transition-transform duration-200 hover:-translate-y-0.5 active:scale-95" style={{ fontFamily: `'Noto Sans Sinhala', ${lang === 'en' ? "'Cormorant Garamond'" : "'Abhaya Libre'"}, serif`, fontWeight: 600, background: "linear-gradient(135deg, #B98A2F, #8C6420)", color: "#FDF8EC", boxShadow: "0 14px 26px -14px rgba(120,86,30,0.7)" }}>
+                      <MapPin className="h-4 w-4" /> {lang === 'si' ? 'සිතියමෙන් බලන්න' : 'View on Map'}
                     </a>
                   </div>
                 </div>
@@ -747,26 +767,26 @@ export default function WeddingInvitation() {
             <section id="rsvp" className="px-6 py-9 sm:px-7 sm:py-12 relative z-10 w-full" style={{ background: "rgba(237, 223, 184, 0.4)" }}>
               <div className="mx-auto max-w-xl text-center">
                 <span className="mb-2 block text-[0.66rem] uppercase" style={{ color: "#B98A2F", fontFamily: "'Montserrat', sans-serif", letterSpacing: "0.34em" }}>RSVP</span>
-                <h2 style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", fontWeight: 700, color: "#8C6420", fontSize: "clamp(1.6rem,4vw,2.3rem)" }}>පැමිණීම දන්වන්න</h2>
+                <h2 style={{ fontFamily: `'Noto Sans Sinhala', ${lang === 'en' ? "'Cormorant Garamond'" : "'Abhaya Libre'"}, serif`, fontWeight: 700, color: "#8C6420", fontSize: "clamp(1.6rem,4vw,2.3rem)" }}>{lang === 'si' ? 'පැමිණීම දන්වන්න' : 'RSVP'}</h2>
                 <div aria-hidden="true" className="mt-3" style={{ width: "120px", aspectRatio: "2100 / 756", margin: "0 auto", background: "linear-gradient(180deg, #D8B45F 0%, #B98A2F 55%, #8C6420 100%)", WebkitMaskImage: "url(/lotus-mandala/lotus-flourish.svg)", maskImage: "url(/lotus-mandala/lotus-flourish.svg)", WebkitMaskRepeat: "no-repeat", maskRepeat: "no-repeat", WebkitMaskSize: "contain", maskSize: "contain", WebkitMaskPosition: "center", maskPosition: "center" }}></div>
                 
-                <p className="mx-auto mb-2 mt-5 max-w-[44ch] leading-[1.85]" style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", color: "#8A7A60" }}>
-                  ඔබගේ පැමිණීම අපට මහත් සතුටකි. කරුණාකර කලින් දන්වන්න.
+                <p className="mx-auto mb-2 mt-5 max-w-[44ch] leading-[1.85]" style={{ fontFamily: `'Noto Sans Sinhala', ${lang === 'en' ? "'Cormorant Garamond'" : "'Abhaya Libre'"}, serif`, color: "#8A7A60" }}>
+                  {lang === 'si' ? 'ඔබගේ පැමිණීම අපට මහත් සතුටකි. කරුණාකර කලින් දන්වන්න.' : 'Your presence is our greatest joy. Please let us know in advance.'}
                 </p>
-                <p className="mb-9 text-[0.95rem]" style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", fontWeight: 600, color: "#8C6420" }}>
-                  ඔබගේ පැමිණීම 2027 ජනවාරි 10 දිනට පෙර කරුණාකර දන්වන්න
+                <p className="mb-9 text-[0.95rem]" style={{ fontFamily: `'Noto Sans Sinhala', ${lang === 'en' ? "'Cormorant Garamond'" : "'Abhaya Libre'"}, serif`, fontWeight: 600, color: "#8C6420" }}>
+                  {lang === 'si' ? 'ඔබගේ පැමිණීම 2027 ජනවාරි 10 දිනට පෙර කරුණාකර දන්වන්න' : 'Please RSVP before January 10, 2027'}
                 </p>
                 
                 <form onSubmit={handleRsvpSubmit} className="rounded-[120px_120px_22px_22px] px-6 pb-10 pt-16 text-left sm:px-12 sm:pt-20" style={{ background: "#FCF8EE", border: "1px solid rgba(185, 138, 47, 0.4)", boxShadow: "0 30px 60px -40px rgba(120,86,30,0.45)" }}>
                   <div className="mb-5 flex flex-col gap-1.5">
-                    <label htmlFor="lm-name" className="text-[0.9rem]" style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", fontWeight: 600, color: "#8C6420" }}>සම්පූර්ණ නම</label>
+                    <label htmlFor="lm-name" className="text-[0.9rem]" style={{ fontFamily: `'Noto Sans Sinhala', ${lang === 'en' ? "'Cormorant Garamond'" : "'Abhaya Libre'"}, serif`, fontWeight: 600, color: "#8C6420" }}>{lang === 'si' ? 'සම්පූර්ණ නම' : 'Full Name'}</label>
                     <input 
                       id="lm-name" 
                       type="text" 
                       required 
-                      placeholder="ඔබගේ නම" 
+                      placeholder={lang === "si" ? "ඔබගේ නම" : "Your Name"} 
                       className="w-full px-4 py-3 focus:outline-none" 
-                      style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", background: "#FCF8EE", border: "1px solid rgba(185, 138, 47, 0.45)", borderRadius: "10px", color: "#5A4A33" }} 
+                      style={{ fontFamily: `'Noto Sans Sinhala', ${lang === 'en' ? "'Cormorant Garamond'" : "'Abhaya Libre'"}, serif`, background: "#FCF8EE", border: "1px solid rgba(185, 138, 47, 0.45)", borderRadius: "10px", color: "#5A4A33" }} 
                       value={rsvpForm.name}
                       onChange={(e) => {
                         setRsvpStatus("idle");
@@ -776,7 +796,7 @@ export default function WeddingInvitation() {
                   </div>
                   
                   <div className="mb-5">
-                    <p className="mb-2.5 text-[0.9rem]" style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", fontWeight: 600, color: "#8C6420" }}>සහභාගි වෙනවාද?</p>
+                    <p className="mb-2.5 text-[0.9rem]" style={{ fontFamily: `'Noto Sans Sinhala', ${lang === 'en' ? "'Cormorant Garamond'" : "'Abhaya Libre'"}, serif`, fontWeight: 600, color: "#8C6420" }}>{lang === 'si' ? 'සහභාගි වෙනවාද?' : 'Are you attending?'}</p>
                     <div className="flex gap-3">
                       <button 
                         type="button" 
@@ -790,10 +810,10 @@ export default function WeddingInvitation() {
                           border: "1px solid rgba(185, 138, 47, 0.45)", 
                           background: rsvpForm.guests !== "0" ? "linear-gradient(135deg, #B98A2F, #8C6420)" : "transparent",
                           color: rsvpForm.guests !== "0" ? "#FDF8EC" : "#8A7A60",
-                          fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", 
+                          fontFamily: `'Noto Sans Sinhala', ${lang === 'en' ? "'Cormorant Garamond'" : "'Abhaya Libre'"}, serif`, 
                           fontWeight: 600 
                         }}>
-                        සතුටින් සහභාගි වෙමි
+                        {lang === 'si' ? 'සතුටින් සහභාගි වෙමි' : 'Joyfully Attending'}
                       </button>
                       <button 
                         type="button" 
@@ -807,17 +827,17 @@ export default function WeddingInvitation() {
                           border: "1px solid rgba(185, 138, 47, 0.45)", 
                           background: rsvpForm.guests === "0" ? "linear-gradient(135deg, #B98A2F, #8C6420)" : "transparent",
                           color: rsvpForm.guests === "0" ? "#FDF8EC" : "#8A7A60",
-                          fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", 
+                          fontFamily: `'Noto Sans Sinhala', ${lang === 'en' ? "'Cormorant Garamond'" : "'Abhaya Libre'"}, serif`, 
                           fontWeight: 600 
                         }}>
-                        සහභාගි විය නොහැක
+                        {lang === 'si' ? 'සහභාගි විය නොහැක' : 'Unable to Attend'}
                       </button>
                     </div>
                   </div>
                   
                   {rsvpForm.guests !== "0" && (
                     <div className="mb-5">
-                      <p className="mb-2.5 text-[0.9rem]" style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", fontWeight: 600, color: "#8C6420" }}>පැමිණෙන ගණන</p>
+                      <p className="mb-2.5 text-[0.9rem]" style={{ fontFamily: `'Noto Sans Sinhala', ${lang === 'en' ? "'Cormorant Garamond'" : "'Abhaya Libre'"}, serif`, fontWeight: 600, color: "#8C6420" }}>{lang === 'si' ? 'පැමිණෙන ගණන' : 'Number of Guests'}</p>
                       <div className="flex items-center justify-center gap-6">
                         <button 
                           type="button" 
@@ -855,14 +875,14 @@ export default function WeddingInvitation() {
                   {(rsvpStatus === "success" || rsvpStatus === "error") && (
                     <p className={`text-xs text-center font-semibold mb-4 ${rsvpStatus === "success" ? "text-emerald-600" : "text-red-500"}`}>
                       {rsvpStatus === "success"
-                        ? "ඔබගේ පැමිණීම තහවුරු කිරීම සාර්ථකව යවා ඇත."
-                        : "කරුණාකර ඔබගේ නම ඇතුළත් කර නැවත උත්සාහ කරන්න."}
+                        ? lang === "si" ? "ඔබගේ පැමිණීම තහවුරු කිරීම සාර්ථකව යවා ඇත." : "Your RSVP has been sent successfully."
+                        : lang === "si" ? "කරුණාකර ඔබගේ නම ඇතුළත් කර නැවත උත්සාහ කරන්න." : "Please enter your name and try again."}
                     </p>
                   )}
                   
-                  <button type="submit" disabled={rsvpStatus === "sending"} className="inline-flex w-full items-center justify-center gap-2.5 rounded-full py-4 text-[1.02rem] transition-transform duration-200 hover:-translate-y-0.5 active:scale-95 disabled:opacity-60" style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", fontWeight: 700, background: "linear-gradient(135deg, #B98A2F, #8C6420)", color: "#FDF8EC", boxShadow: "0 14px 30px -12px rgba(120,86,30,0.6)" }}>
+                  <button type="submit" disabled={rsvpStatus === "sending"} className="inline-flex w-full items-center justify-center gap-2.5 rounded-full py-4 text-[1.02rem] transition-transform duration-200 hover:-translate-y-0.5 active:scale-95 disabled:opacity-60" style={{ fontFamily: `'Noto Sans Sinhala', ${lang === 'en' ? "'Cormorant Garamond'" : "'Abhaya Libre'"}, serif`, fontWeight: 700, background: "linear-gradient(135deg, #B98A2F, #8C6420)", color: "#FDF8EC", boxShadow: "0 14px 30px -12px rgba(120,86,30,0.6)" }}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-send h-4 w-4" aria-hidden="true"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path><path d="m21.854 2.147-10.94 10.939"></path></svg>
-                    {rsvpStatus === "sending" ? "යවමින්..." : "පිළිතුර යවන්න"}
+                    {rsvpStatus === "sending" ? (lang === "si" ? "යවමින්..." : "Sending...") : (lang === "si" ? "පිළිතුර යවන්න" : "Send RSVP")}
                   </button>
                 </form>
               </div>
@@ -880,11 +900,11 @@ export default function WeddingInvitation() {
                   <div className="my-3.5" style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 500, fontSize: "clamp(2.4rem,9vw,5rem)", lineHeight: 1, letterSpacing: "0.04em" }}>
                     20 . 01 . 27
                   </div>
-                  <div className="mb-6 text-[1.05rem] leading-[1.85]" style={{ fontFamily: "'Noto Sans Sinhala', 'Abhaya Libre', serif", color: "#EDDFB8" }}>
-                    ආදරයෙන්, දෙපවුලේ ආරාධනයයි
+                  <div className="mb-6 text-[1.05rem] leading-[1.85]" style={{ fontFamily: `'Noto Sans Sinhala', ${lang === 'en' ? "'Cormorant Garamond'" : "'Abhaya Libre'"}, serif`, color: "#EDDFB8" }}>
+                    {lang === 'si' ? 'ආදරයෙන්, දෙපවුලේ ආරාධනයයි' : 'With love, from both families'}
                   </div>
                   
-                  <div className="mb-8 flex flex-col items-center gap-1 text-[1rem]" style={{ fontFamily: "'Abhaya Libre', serif", color: "#EDDFB8" }}>
+                  <div className="mb-8 flex flex-col items-center gap-1 text-[1rem]" style={{ fontFamily: `${lang === 'en' ? "'Cormorant Garamond'" : "'Abhaya Libre'"}, serif`, color: "#EDDFB8" }}>
                     <div className="font-bold uppercase tracking-widest text-[0.75rem] mb-1" style={{ fontFamily: "'Montserrat', sans-serif", opacity: 0.85 }}>Contact</div>
                     <div>Akash - 071 639 2469</div>
                     <div>Pawani - 0765584662</div>
