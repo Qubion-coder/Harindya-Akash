@@ -564,7 +564,7 @@ export default function WeddingInvitation() {
                       Ekanayake`}
                     </p>
                     <p className="mt-auto" aria-label="හරින්ද්‍යා ඒකනායක">
-                      <span aria-hidden="true" className={lang === "si" ? "font-nimsara" : "font-english-title drop-shadow-sm tracking-wide"} style={{ fontVariantLigatures: "none", color: "#8C6420", fontSize: "clamp(1.4rem,4.2vw,2rem)", lineHeight: 1.15 }}>
+                      <span aria-hidden="true" className={lang === "si" ? "font-nimsara whitespace-nowrap" : "font-english-title drop-shadow-sm tracking-wide whitespace-nowrap"} style={{ fontVariantLigatures: "none", color: "#8C6420", fontSize: "clamp(1.4rem,4.2vw,2rem)", lineHeight: 1.15 }}>
                         {lang === 'si' ? 'yßkaoHd talkdhl' : 'Harindya Ekanayake'}
                       </span>
                     </p>
@@ -580,7 +580,7 @@ export default function WeddingInvitation() {
                     </p>
                     <p className="mt-auto" aria-label="ආකාශ් බණ්ඩාර">
                       <span aria-hidden="true" className={lang === "si" ? "font-nimsara block text-center" : "font-english-title drop-shadow-sm tracking-wide block text-center"} style={{ fontVariantLigatures: "none", color: "#8C6420", fontSize: "clamp(1.4rem,4.2vw,2rem)", lineHeight: 1.15 }}>
-                        {lang === 'si' ? <>wdldYa<br />nKavdr</> : <>Akash<br />Bandara</>}
+                        {lang === 'si' ? 'wdldYa nKavdr' : 'Akash Bandara'}
                       </span>
                     </p>
                   </div>
@@ -612,10 +612,10 @@ export default function WeddingInvitation() {
                     </span>
                   </div>
                   <div className="mt-2.5 text-[1rem] text-[#5A4A33]" style={{ fontFamily: "'Noto Sans Sinhala', sans-serif" }}>
-                    {lang === 'si' ? 'උදෑසන සිට දහවල් 12:00 දක්වා (උදෑසන ආහාර වේල ද පිරිනැමේ' : 'From morning until 12:00 PM (Breakfast will be served)'}
+                    {lang === 'si' ? 'උදෑසන සිට දහවල් 12:00 දක්වා (උදෑසන ආහාර වේල)' : 'From morning until 12:00 PM (Breakfast will be served)'}
                   </div>
                   <p className="mt-1 text-[0.92rem]" style={{ fontFamily: `'Noto Sans Sinhala', ${lang === 'en' ? "'Cormorant Garamond'" : "'Abhaya Libre'"}, serif`, color: "#8A7A60" }}>
-                    {lang === 'si' ? `(පෝරුවේ චාරිත්‍ර ${INVITATION.time.ceremonyStart} ට)` : `(Poruwa Ceremony at ${INVITATION.time.ceremonyStart})`}
+                    {lang === 'si' ? `(පෝරුවේ චාරිත්‍ර ${INVITATION.time.ceremonyStart} ට)` : `(Poruwa Ceremony at 9.15am)`}
                   </p>
                 </div>
                 
@@ -685,7 +685,7 @@ export default function WeddingInvitation() {
                   </div>
                   <span className="my-1.5 h-px w-10" style={{ background: "#D8B45F" }} aria-hidden="true"></span>
                   <p className="text-[0.95rem] leading-[1.8]" style={{ fontFamily: `'Noto Sans Sinhala', ${lang === 'en' ? "'Cormorant Garamond'" : "'Abhaya Libre'"}, serif`, color: "#8A7A60" }}>
-                    {lang === 'si' ? 'පෝරුවේ චාරිත්‍රය:' : 'Poruwa Ceremony:'} {INVITATION.time.ceremonyStart} {lang === 'si' ? 'ට' : ''}<br/>{lang === 'si' ? 'උදෑසන ආහාරය:' : 'Breakfast:'} {INVITATION.time.registration} {lang === 'si' ? 'සිට' : 'onwards'}<br/>{lang === 'si' ? 'ඉන් අනතුරුව මංගල භෝජන සංග්‍රහය' : 'Followed by the wedding feast'}
+                    {lang === 'si' ? 'පෝරුවේ චාරිත්‍රය:' : 'Poruwa Ceremony:'} {lang === 'si' ? INVITATION.time.ceremonyStart : '9.15am'} {lang === 'si' ? 'ට' : ''}<br/>{lang === 'si' ? 'උදෑසන ආහාරය:' : 'Breakfast:'} {lang === 'si' ? INVITATION.time.registration : '10.00am'} {lang === 'si' ? 'සිට' : 'onwards'}
                   </p>
                 </div>
               </div>
