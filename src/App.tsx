@@ -34,7 +34,7 @@ const INVITATION = {
 
 const backgroundMusic = "/ssstik.io_1790155724397.mp3";
 const googleScriptUrl =
-  "https://script.google.com/macros/s/AKfycbx6tVTRxM0Fjc10fR0a35PjSjb9JJN-9F7zDpxyJvVMhdZ3A-_rOkAV8x8Cwpeqfp5NLw/exec";
+  "https://script.google.com/macros/s/AKfycbwxIzEgbWhN1mIGbFiI4YIKGqa4S5dylwrDaNkoMZVkUzEmhES9QVqDm2YIgXo3sepF/exec";
 
 const publicImagePath = (fileName: string) => `/images/${fileName.replaceAll(" ", "%20")}`;
 const preImagePath = (fileName: string) => `/pre/${fileName.replaceAll(" ", "%20")}`;
