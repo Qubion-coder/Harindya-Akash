@@ -478,14 +478,14 @@ export default function WeddingInvitation() {
                   </div>
                   
                   <p className="mt-7" aria-label="සාදර ඇරයුමයි !">
-                    <span aria-hidden="true" className={lang === "si" ? "font-nimsara" : "font-english-title drop-shadow-sm tracking-wide"} style={{ fontVariantLigatures: "none", color: "#8C6420", fontSize: "clamp(1.7rem,7vw,2.8rem)", lineHeight: 1.2 }}>{lang === 'si' ? 'idor werhquhs' : 'You\'re Invited'}</span>
+                    <span aria-hidden="true" className={lang === "si" ? "font-nimsara" : "font-english-title tracking-wide"} style={{ fontVariantLigatures: "none", color: "#8C6420", fontSize: "clamp(1.7rem,7vw,2.8rem)", lineHeight: 1.2 }}>{lang === 'si' ? 'idor werhquhs' : 'You\'re Invited'}</span>
                     <span aria-hidden="true" style={{ fontFamily: `'Noto Sans Sinhala', ${lang === 'en' ? "'Cormorant Garamond'" : "'Abhaya Libre'"}, serif`, fontWeight: 700, color: "#8C6420", fontSize: "clamp(1.7rem,7vw,2.8rem)", lineHeight: 1.2 }}>{lang === 'si' ? ' !' : '!'}</span>
                   </p>
 
                   <p className="mt-4" aria-hidden="true" style={{ fontSize: "clamp(1.4rem,5.5vw,2.1rem)", display: "flex", gap: "0.4rem", alignItems: "center" }}>
-                    <span className={lang === "si" ? "font-nimsara" : "font-english-title drop-shadow-sm tracking-wide"} style={{ fontVariantLigatures: "none", color: "#B98A2F" }}>{lang === 'si' ? 'yßkaoHd' : 'Harindya'}</span>
+                    <span className={lang === "si" ? "font-nimsara" : "font-english-title tracking-wide"} style={{ fontVariantLigatures: "none", color: "#B98A2F" }}>{lang === 'si' ? 'yßkaoHd' : 'Harindya'}</span>
                     <span style={{ fontFamily: `'Noto Sans Sinhala', ${lang === 'en' ? "'Cormorant Garamond'" : "'Abhaya Libre'"}, serif`, color: "#8C6420", fontWeight: 700 }}>{lang === 'si' ? 'සහ' : 'and'}</span>
-                    <span className={lang === "si" ? "font-nimsara" : "font-english-title drop-shadow-sm tracking-wide"} style={{ fontVariantLigatures: "none", color: "#B98A2F" }}>{lang === 'si' ? 'wdldYa' : 'Akash'}</span>
+                    <span className={lang === "si" ? "font-nimsara" : "font-english-title tracking-wide"} style={{ fontVariantLigatures: "none", color: "#B98A2F" }}>{lang === 'si' ? 'wdldYa' : 'Akash'}</span>
                   </p>
 
                   <button 
@@ -548,7 +548,7 @@ export default function WeddingInvitation() {
               <div className="relative mx-auto max-w-2xl px-6 text-center sm:px-8 pb-12 z-10 mt-6">
                 <div>
                   <h1 aria-label="සාදර ඇරයුමයි !" className="-mt-1" style={{ fontSize: "clamp(2.1rem,8.5vw,3.4rem)", lineHeight: 1.25, backgroundImage: "linear-gradient(170deg, #D8B45F 0%, #B98A2F 45%, #8C6420 100%)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
-                    <span aria-hidden="true" className={lang === "si" ? "font-nimsara" : "font-english-title drop-shadow-sm tracking-wide"} style={{ fontVariantLigatures: "none" }}>{lang === 'si' ? 'idor werhquhs' : 'You\'re Invited'}</span>
+                    <span aria-hidden="true" className={lang === "si" ? "font-nimsara" : "font-english-title tracking-wide"} style={{ fontVariantLigatures: "none" }}>{lang === 'si' ? 'idor werhquhs' : 'You\'re Invited'}</span>
                     <span aria-hidden="true" style={{ fontFamily: "'Noto Sans Sinhala', sans-serif", fontWeight: 600 }}> !</span>
                   </h1>
                 </div>
@@ -564,7 +564,7 @@ export default function WeddingInvitation() {
                       Ekanayake`}
                     </p>
                     <p className="mt-auto" aria-label="හරින්ද්‍යා ඒකනායක">
-                      <span aria-hidden="true" className={lang === "si" ? "font-nimsara whitespace-nowrap" : "font-english-title drop-shadow-sm tracking-wide whitespace-nowrap"} style={{ fontVariantLigatures: "none", color: "#8C6420", fontSize: "clamp(1.4rem,4.2vw,2rem)", lineHeight: 1.15 }}>
+                      <span aria-hidden="true" className={lang === "si" ? "font-nimsara whitespace-nowrap" : "font-english-title tracking-wide whitespace-nowrap"} style={{ fontVariantLigatures: "none", color: "#8C6420", fontSize: "clamp(1.4rem,4.2vw,2rem)", lineHeight: 1.15 }}>
                         {lang === 'si' ? 'yßkaoHd talkdhl' : 'Harindya Ekanayake'}
                       </span>
                     </p>
@@ -579,7 +579,7 @@ export default function WeddingInvitation() {
                       Bandara`}
                     </p>
                     <p className="mt-auto" aria-label="ආකාශ් බණ්ඩාර">
-                      <span aria-hidden="true" className={lang === "si" ? "font-nimsara block text-center" : "font-english-title drop-shadow-sm tracking-wide block text-center"} style={{ fontVariantLigatures: "none", color: "#8C6420", fontSize: "clamp(1.4rem,4.2vw,2rem)", lineHeight: 1.15 }}>
+                      <span aria-hidden="true" className={lang === "si" ? "font-nimsara block text-center" : "font-english-title tracking-wide block text-center"} style={{ fontVariantLigatures: "none", color: "#8C6420", fontSize: "clamp(1.4rem,4.2vw,2rem)", lineHeight: 1.15 }}>
                         {lang === 'si' ? 'wdldYa nKavdr' : 'Akash Bandara'}
                       </span>
                     </p>
