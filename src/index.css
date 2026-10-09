@@ -13,6 +13,11 @@
   font-family: 'nimsara' !important;
 }
 
+.font-english-title {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-weight: 700 !important;
+}
+
 @theme {
   --font-serif: "Abhaya Libre", serif;
   --font-script: "Abhaya Libre", cursive;
